@@ -622,7 +622,7 @@ if (insertError) {
 }
 
 const { error: emailError } = await supabaseClient.functions.invoke(
-  "send-requirement-emails",
+  "swift-worker",
   {
     body: data
   }
