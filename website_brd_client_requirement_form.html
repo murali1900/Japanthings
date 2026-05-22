@@ -454,5 +454,111 @@
     3. Upload logo/master file to the storage bucket first.
     4. Save the public/private file path in the website_requirements table.
   -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+  const SUPABASE_URL = "https://ladlsnsvycmcypzvnwwq.supabase.co";
+  const SUPABASE_ANON_KEY = "sb_publishable_xtodfLGfCsUhuvA1bGSTkw_9TCmVo_-";
+
+  const supabase = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_ANON_KEY
+  );
+
+  document.getElementById("websiteRequirementForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    let logoFileUrl = null;
+    const logoFile = formData.get("logo_file");
+
+    if (logoFile && logoFile.name) {
+      const filePath = `logos/${Date.now()}-${logoFile.name}`;
+
+      const { error: uploadError } = await supabase.storage
+        .from("client-uploads")
+        .upload(filePath, logoFile);
+
+      if (uploadError) {
+        alert("Logo upload failed: " + uploadError.message);
+        return;
+      }
+
+      const { data } = supabase.storage
+        .from("client-uploads")
+        .getPublicUrl(filePath);
+
+      logoFileUrl = data.publicUrl;
+    }
+
+    const getCheckedValues = (name) => {
+      return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`))
+        .map(item => item.value);
+    };
+
+    const payload = {
+      business_name: formData.get("business_name"),
+      business_type: formData.get("business_type"),
+      gst_number: formData.get("gst_number"),
+      contact_number: formData.get("contact_number"),
+      email_address: formData.get("email_address"),
+      existing_website: formData.get("existing_website"),
+      business_address: formData.get("business_address"),
+
+      has_logo: formData.get("has_logo"),
+      need_logo_design: formData.get("need_logo_design"),
+      logo_file_url: logoFileUrl,
+      brand_style: formData.get("brand_style"),
+
+      website_objective: getCheckedValues("website_objective"),
+      website_objective_other: formData.get("website_objective_other"),
+
+      pages_required: getCheckedValues("pages_required"),
+      other_pages_brief: formData.get("other_pages_brief"),
+
+      content_provider: formData.get("content_provider"),
+      image_count: Number(formData.get("image_count")) || null,
+      video_embedding: formData.get("video_embedding"),
+      brochure_catalog_upload: formData.get("brochure_catalog_upload"),
+
+      whatsapp_chat: formData.get("whatsapp_chat"),
+      whatsapp_type: formData.get("whatsapp_type"),
+      whatsapp_number: formData.get("whatsapp_number"),
+      live_chat: formData.get("live_chat"),
+
+      facebook_url: formData.get("facebook_url"),
+      instagram_url: formData.get("instagram_url"),
+      linkedin_url: formData.get("linkedin_url"),
+      youtube_url: formData.get("youtube_url"),
+
+      has_domain: formData.get("has_domain"),
+      hosting_support: formData.get("hosting_support"),
+      domain_hosting_details: formData.get("domain_hosting_details"),
+
+      seo_marketing: getCheckedValues("seo_marketing"),
+      additional_features: getCheckedValues("additional_features"),
+
+      expected_launch_date: formData.get("expected_launch_date") || null,
+      estimated_budget: formData.get("estimated_budget"),
+      additional_notes: formData.get("additional_notes"),
+
+      terms_agreed: formData.get("terms_agreed") === "on"
+    };
+
+    const { error } = await supabase
+      .from("website_requirements")
+      .insert(payload);
+
+    if (error) {
+      alert("Form submission failed: " + error.message);
+      return;
+    }
+
+    alert("Thank you. Your website requirements have been submitted successfully.");
+    form.reset();
+  });
+</script>
 </body>
 </html>
