@@ -611,13 +611,26 @@
           terms_agreed: formData.get("terms_agreed") === "on"
         };
 
-        const { error: insertError } = await supabaseClient
-          .from("website_requirements")
-          .insert([payload]);
+        const { data, error: insertError } = await supabaseClient
+  .from("website_requirements")
+  .insert([payload])
+  .select("*")
+  .single();
 
-        if (insertError) {
-          throw new Error("Form submission failed: " + insertError.message);
-        }
+if (insertError) {
+  throw new Error("Form submission failed: " + insertError.message);
+}
+
+const { error: emailError } = await supabaseClient.functions.invoke(
+  "send-requirement-emails",
+  {
+    body: data
+  }
+);
+
+if (emailError) {
+  console.error("Email sending failed:", emailError);
+}
 
         showStatus("success", "Thank you. Your website requirements have been submitted successfully.");
         alert("Thank you. Your website requirements have been submitted successfully.");
