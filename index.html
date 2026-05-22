@@ -611,7 +611,7 @@
           terms_agreed: formData.get("terms_agreed") === "on"
         };
 
-        const { data, error: insertError } = await supabaseClient
+       const { data, error: insertError } = await supabaseClient
   .from("website_requirements")
   .insert([payload])
   .select("*")
@@ -631,7 +631,6 @@ const { error: emailError } = await supabaseClient.functions.invoke(
 if (emailError) {
   console.error("Email sending failed:", emailError);
 }
-
         showStatus("success", "Thank you. Your website requirements have been submitted successfully.");
         alert("Thank you. Your website requirements have been submitted successfully.");
         form.reset();
