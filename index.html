@@ -1,1 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panya Computech LLP - Micro and Small Business Website Requirement Gathering Form Client</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 20px;
+      color: #222;
+    }
 
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      color: #0f4c81;
+    }
+
+    p.intro {
+      text-align: center;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      background: #0f4c81;
+      color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 35px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      min-height: 90px;
+    }
+
+    .checkbox-group,
+    .radio-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .checkbox-group label,
+    .radio-group label {
+      font-weight: normal;
+    }
+
+    .note {
+      font-size: 13px;
+      color: #555;
+      margin-top: 5px;
+    }
+
+    .terms-box {
+      background: #f8fafc;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 15px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    button {
+      background: #0f4c81;
+      color: white;
+      border: none;
+      padding: 14px 30px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 30px;
+    }
+
+    button:hover {
+      background: #093455;
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 13px;
+      color: #666;
+      text-align: center;
+    }
+
+    @media(max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Panya Computech LLP</h1>
+    <p class="intro">
+      Micro and Small Business Website Requirement Gathering Form - Client
+    </p>
+
+    <form id="websiteRequirementForm">
+
+      <h2>1. Business Information</h2>
+      <div class="grid">
+        <div>
+          <label>Business Name</label>
+          <input name="business_name" type="text" required>
+        </div>
+
+        <div>
+          <label>Business Type</label>
+          <select name="business_type" required>
+            <option value="">Select Business Type</option>
+            <option>Retail Shop</option>
+            <option>Restaurant / Cafe / Bakery</option>
+            <option>Travel Agency / Tours</option>
+            <option>Real Estate / Property Consultant</option>
+            <option>Clinic / Healthcare</option>
+            <option>Education / Coaching Centre</option>
+            <option>Salon / Beauty / Spa</option>
+            <option>Gym / Fitness / Yoga</option>
+            <option>Manufacturing Unit</option>
+            <option>Trading Business</option>
+            <option>Construction / Contractor</option>
+            <option>Interior Design / Architecture</option>
+            <option>IT Services / Software</option>
+            <option>Accounting / Tax Consultant</option>
+            <option>Legal / Advocate / Law Firm</option>
+            <option>Event Management</option>
+            <option>Photography / Videography</option>
+            <option>Automobile / Garage / Spare Parts</option>
+            <option>Logistics / Transport</option>
+            <option>NGO / Trust / Association</option>
+            <option>Home Services / Repairs</option>
+            <option>E-commerce / Online Store</option>
+            <option>Wholesale / Distributor</option>
+            <option>Hotel / Guest House / Resort</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div>
+          <label>GST Number</label>
+          <input name="gst_number" type="text">
+        </div>
+
+        <div>
+          <label>Contact Number</label>
+          <input name="contact_number" type="text" required>
+        </div>
+
+        <div>
+          <label>Email Address</label>
+          <input name="email_address" type="email" required>
+        </div>
+
+        <div>
+          <label>Website (if any)</label>
+          <input name="existing_website" type="text">
+        </div>
+
+        <div class="full">
+          <label>Business Address</label>
+          <textarea name="business_address" required></textarea>
+        </div>
+      </div>
+
+      <h2>2. Branding</h2>
+      <div class="grid">
+        <div>
+          <label>Do you already have a logo?</label>
+          <select name="has_logo" required>
+            <option value="">Select</option>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Need Logo Design?</label>
+          <select name="need_logo_design" required>
+            <option value="">Select</option>
+            <option>Yes</option>
+            <option>No - I will attach the logo master file</option>
+          </select>
+        </div>
+
+        <div class="full">
+          <label>Attach Logo / Master File</label>
+          <input name="logo_file" type="file" accept=".jpg,.jpeg,.png,.svg,.pdf,.ai,.eps">
+          <p class="note">Preferred formats: JPEG, PNG, SVG. Master files such as AI, EPS or PDF may also be attached if available.</p>
+        </div>
+
+        <div class="full">
+          <label>Preferred Brand Colours / Design Style</label>
+          <textarea name="brand_style"></textarea>
+        </div>
+      </div>
+
+      <h2>3. Website Objective</h2>
+      <div class="checkbox-group">
+        <label><input name="website_objective" type="checkbox" value="Lead Generation"> Lead Generation</label>
+        <label><input name="website_objective" type="checkbox" value="Product Showcase"> Product Showcase</label>
+        <label><input name="website_objective" type="checkbox" value="Service Showcase"> Service Showcase</label>
+        <label><input name="website_objective" type="checkbox" value="Online Sales"> Online Sales</label>
+        <label><input name="website_objective" type="checkbox" value="Booking Enquiries"> Booking Enquiries</label>
+        <label><input name="website_objective" type="checkbox" value="Portfolio"> Portfolio</label>
+        <label><input name="website_objective" type="checkbox" value="Other"> Other</label>
+      </div>
+      <div class="full" style="margin-top:15px;">
+        <label>If Other, please explain the website objective</label>
+        <textarea name="website_objective_other"></textarea>
+      </div>
+
+      <h2>4. Pages Required</h2>
+      <div class="checkbox-group">
+        <label><input name="pages_required" type="checkbox" value="Home"> Home</label>
+        <label><input name="pages_required" type="checkbox" value="About Us"> About Us</label>
+        <label><input name="pages_required" type="checkbox" value="Services"> Services</label>
+        <label><input name="pages_required" type="checkbox" value="Products"> Products</label>
+        <label><input name="pages_required" type="checkbox" value="Gallery"> Gallery</label>
+        <label><input name="pages_required" type="checkbox" value="Testimonials"> Testimonials</label>
+        <label><input name="pages_required" type="checkbox" value="Blog"> Blog</label>
+        <label><input name="pages_required" type="checkbox" value="FAQ"> FAQ</label>
+        <label><input name="pages_required" type="checkbox" value="Contact Us"> Contact Us</label>
+        <label><input name="pages_required" type="checkbox" value="Other"> Other</label>
+      </div>
+      <div class="full" style="margin-top:15px;">
+        <label>Any Other Pages Required? Please list with brief description</label>
+        <textarea name="other_pages_brief" placeholder="Example: Franchise Enquiry page - for people interested in dealership or franchise enquiries."></textarea>
+      </div>
+
+      <h2>5. Content & Media</h2>
+      <div class="grid">
+        <div>
+          <label>Will you provide content?</label>
+          <select name="content_provider">
+            <option>Yes</option>
+            <option>No</option>
+            <option>Need Assistance</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Approximate Number of Images</label>
+          <input name="image_count" type="number">
+        </div>
+
+        <div>
+          <label>Need Video Embedding?</label>
+          <select name="video_embedding">
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Need Brochure/Catalog Upload?</label>
+          <select name="brochure_catalog_upload">
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+      </div>
+
+      <h2>6. WhatsApp & Chat Integration</h2>
+      <div class="grid">
+        <div>
+          <label>Need WhatsApp Chat?</label>
+          <select name="whatsapp_chat">
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+
+        <div>
+          <label>WhatsApp Type</label>
+          <select name="whatsapp_type">
+            <option>WhatsApp Business</option>
+            <option>Personal WhatsApp</option>
+          </select>
+        </div>
+
+        <div>
+          <label>WhatsApp Number</label>
+          <input name="whatsapp_number" type="text">
+        </div>
+
+        <div>
+          <label>Need Live Chat?</label>
+          <select name="live_chat">
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+      </div>
+
+      <h2>7. Social Media Links</h2>
+      <div class="grid">
+        <div>
+          <label>Facebook URL</label>
+          <input name="facebook_url" type="text">
+        </div>
+
+        <div>
+          <label>Instagram URL</label>
+          <input name="instagram_url" type="text">
+        </div>
+
+        <div>
+          <label>LinkedIn URL</label>
+          <input name="linkedin_url" type="text">
+        </div>
+
+        <div>
+          <label>YouTube URL</label>
+          <input name="youtube_url" type="text">
+        </div>
+      </div>
+
+      <h2>8. Domain & Hosting</h2>
+      <div class="grid">
+        <div>
+          <label>Do you already have a domain?</label>
+          <select name="has_domain">
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Need Hosting Support?</label>
+          <select name="hosting_support">
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+
+        <div class="full">
+          <label>Existing Domain/Hosting Details</label>
+          <textarea name="domain_hosting_details"></textarea>
+        </div>
+      </div>
+
+      <h2>9. SEO & Marketing</h2>
+      <div class="checkbox-group">
+        <label><input name="seo_marketing" type="checkbox" value="Basic SEO"> Basic SEO</label>
+        <label><input name="seo_marketing" type="checkbox" value="Google Analytics"> Google Analytics</label>
+        <label><input name="seo_marketing" type="checkbox" value="Google Search Console"> Google Search Console</label>
+        <label><input name="seo_marketing" type="checkbox" value="Facebook Pixel"> Facebook Pixel</label>
+        <label><input name="seo_marketing" type="checkbox" value="Sitemap"> Sitemap</label>
+      </div>
+
+      <h2>10. Additional Features</h2>
+      <div class="checkbox-group">
+        <label><input name="additional_features" type="checkbox" value="Admin Panel"> Admin Panel</label>
+        <label><input name="additional_features" type="checkbox" value="Blog System"> Blog System</label>
+        <label><input name="additional_features" type="checkbox" value="User Login"> User Login</label>
+        <label><input name="additional_features" type="checkbox" value="Payment Gateway"> Payment Gateway</label>
+        <label><input name="additional_features" type="checkbox" value="Booking System"> Booking System</label>
+        <label><input name="additional_features" type="checkbox" value="Newsletter"> Newsletter</label>
+      </div>
+
+      <h2>11. Timeline & Budget</h2>
+      <div class="grid">
+        <div>
+          <label>Expected Launch Date</label>
+          <input name="expected_launch_date" type="date">
+        </div>
+
+        <div>
+          <label>Estimated Budget</label>
+          <input name="estimated_budget" type="text">
+        </div>
+
+        <div class="full">
+          <label>Additional Notes / Requirements</label>
+          <textarea name="additional_notes"></textarea>
+        </div>
+      </div>
+
+      <h2>12. Terms & Conditions</h2>
+      <div class="terms-box">
+        <p><strong>Please read and confirm:</strong></p>
+        <p>1. The information provided in this form will be used to prepare the website scope, quotation, design, development and deployment plan.</p>
+        <p>2. Any feature not mentioned or approved in the initial requirement may be treated as additional work and may require a separate quotation.</p>
+        <p>3. The client is responsible for providing correct business details, logo, images, content, product/service information, GST details, contact numbers and legal policy content wherever applicable.</p>
+        <p>4. Delivery timelines depend on timely receipt of required content, approvals, access credentials, payment confirmation and third-party service readiness.</p>
+        <p>5. Panya Computech LLP will make reasonable efforts to provide a secure and functional website, but small business websites are not enterprise-grade applications unless specifically contracted as such.</p>
+        <p>6. Third-party services such as hosting, domain, email, payment gateway, WhatsApp, Google, Facebook, Instagram, plugins and APIs are subject to their own terms, pricing, uptime and limitations.</p>
+        <p>7. The client confirms that uploaded logos, images, brochures, videos, text and other material are legally authorised for use on the website.</p>
+        <p>8. Final deployment, source code transfer, maintenance, upgrades, bug fixes and support will be governed by the agreed quotation, invoice and service terms.</p>
+      </div>
+
+      <div style="margin-top:15px;">
+        <label>
+          <input name="terms_agreed" type="checkbox" required>
+          I have read and agree to the above Terms & Conditions.
+        </label>
+      </div>
+
+      <button type="submit">Submit Requirements</button>
+
+    </form>
+
+    <div class="footer">
+      © 2026 Panya Computech LLP | Micro and Small Business Website Requirement Gathering Form
+    </div>
+  </div>
+
+  <!--
+    Supabase Storage Note:
+    1. Create a Supabase table named: website_requirements
+    2. Create a Supabase storage bucket named: client-uploads
+    3. Upload logo/master file to the storage bucket first.
+    4. Save the public/private file path in the website_requirements table.
+  -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+  const SUPABASE_URL = "https://ladlsnsvycmcypzvnwwq.supabase.co";
+  const SUPABASE_ANON_KEY = "sb_publishable_xtodfLGfCsUhuvA1bGSTkw_9TCmVo_-";
+
+  const supabase = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_ANON_KEY
+  );
+
+  document.getElementById("websiteRequirementForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    let logoFileUrl = null;
+    const logoFile = formData.get("logo_file");
+
+    if (logoFile && logoFile.name) {
+      const filePath = `logos/${Date.now()}-${logoFile.name}`;
+
+      const { error: uploadError } = await supabase.storage
+        .from("client-uploads")
+        .upload(filePath, logoFile);
+
+      if (uploadError) {
+        alert("Logo upload failed: " + uploadError.message);
+        return;
+      }
+
+      const { data } = supabase.storage
+        .from("client-uploads")
+        .getPublicUrl(filePath);
+
+      logoFileUrl = data.publicUrl;
+    }
+
+    const getCheckedValues = (name) => {
+      return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`))
+        .map(item => item.value);
+    };
+
+    const payload = {
+      business_name: formData.get("business_name"),
+      business_type: formData.get("business_type"),
+      gst_number: formData.get("gst_number"),
+      contact_number: formData.get("contact_number"),
+      email_address: formData.get("email_address"),
+      existing_website: formData.get("existing_website"),
+      business_address: formData.get("business_address"),
+
+      has_logo: formData.get("has_logo"),
+      need_logo_design: formData.get("need_logo_design"),
+      logo_file_url: logoFileUrl,
+      brand_style: formData.get("brand_style"),
+
+      website_objective: getCheckedValues("website_objective"),
+      website_objective_other: formData.get("website_objective_other"),
+
+      pages_required: getCheckedValues("pages_required"),
+      other_pages_brief: formData.get("other_pages_brief"),
+
+      content_provider: formData.get("content_provider"),
+      image_count: Number(formData.get("image_count")) || null,
+      video_embedding: formData.get("video_embedding"),
+      brochure_catalog_upload: formData.get("brochure_catalog_upload"),
+
+      whatsapp_chat: formData.get("whatsapp_chat"),
+      whatsapp_type: formData.get("whatsapp_type"),
+      whatsapp_number: formData.get("whatsapp_number"),
+      live_chat: formData.get("live_chat"),
+
+      facebook_url: formData.get("facebook_url"),
+      instagram_url: formData.get("instagram_url"),
+      linkedin_url: formData.get("linkedin_url"),
+      youtube_url: formData.get("youtube_url"),
+
+      has_domain: formData.get("has_domain"),
+      hosting_support: formData.get("hosting_support"),
+      domain_hosting_details: formData.get("domain_hosting_details"),
+
+      seo_marketing: getCheckedValues("seo_marketing"),
+      additional_features: getCheckedValues("additional_features"),
+
+      expected_launch_date: formData.get("expected_launch_date") || null,
+      estimated_budget: formData.get("estimated_budget"),
+      additional_notes: formData.get("additional_notes"),
+
+      terms_agreed: formData.get("terms_agreed") === "on"
+    };
+
+    const { error } = await supabase
+      .from("website_requirements")
+      .insert(payload);
+
+    if (error) {
+      alert("Form submission failed: " + error.message);
+      return;
+    }
+
+    alert("Thank you. Your website requirements have been submitted successfully.");
+    form.reset();
+  });
+</script>
+</body>
+</html>
