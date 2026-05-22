@@ -3,8 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Panya Computech LLP - Micro and Small Business Website Requirement Gathering Form Client</title>
+  <title>Panya Computech LLP - Website Requirement Form</title>
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: Arial, sans-serif;
       background: #f4f6f9;
@@ -16,10 +21,10 @@
     .container {
       max-width: 1100px;
       margin: auto;
-      background: #fff;
+      background: #ffffff;
       padding: 30px;
       border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 
     h1 {
@@ -28,7 +33,7 @@
       color: #0f4c81;
     }
 
-    p.intro {
+    .intro {
       text-align: center;
       color: #555;
       margin-bottom: 30px;
@@ -36,10 +41,11 @@
 
     h2 {
       background: #0f4c81;
-      color: #fff;
+      color: #ffffff;
       padding: 10px;
       border-radius: 5px;
       margin-top: 35px;
+      font-size: 18px;
     }
 
     .grid {
@@ -63,18 +69,17 @@
     select {
       width: 100%;
       padding: 10px;
-      border: 1px solid #ccc;
+      border: 1px solid #cccccc;
       border-radius: 5px;
       font-size: 14px;
-      box-sizing: border-box;
     }
 
     textarea {
       min-height: 90px;
+      resize: vertical;
     }
 
-    .checkbox-group,
-    .radio-group {
+    .checkbox-group {
       display: flex;
       flex-wrap: wrap;
       gap: 15px;
@@ -82,28 +87,58 @@
     }
 
     .checkbox-group label,
-    .radio-group label {
+    .terms-check label {
       font-weight: normal;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .checkbox-group input,
+    .terms-check input {
+      width: auto;
     }
 
     .note {
       font-size: 13px;
-      color: #555;
+      color: #555555;
       margin-top: 5px;
     }
 
     .terms-box {
       background: #f8fafc;
-      border: 1px solid #ddd;
+      border: 1px solid #dddddd;
       border-radius: 6px;
       padding: 15px;
       font-size: 14px;
       line-height: 1.6;
     }
 
+    .status {
+      display: none;
+      margin-top: 20px;
+      padding: 14px;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .status.success {
+      display: block;
+      background: #e7f7ed;
+      color: #146c2e;
+      border: 1px solid #b7e4c7;
+    }
+
+    .status.error {
+      display: block;
+      background: #fdecea;
+      color: #b42318;
+      border: 1px solid #f5c2c0;
+    }
+
     button {
       background: #0f4c81;
-      color: white;
+      color: #ffffff;
       border: none;
       padding: 14px 30px;
       border-radius: 5px;
@@ -116,14 +151,19 @@
       background: #093455;
     }
 
+    button:disabled {
+      background: #888888;
+      cursor: not-allowed;
+    }
+
     .footer {
       margin-top: 30px;
       font-size: 13px;
-      color: #666;
+      color: #666666;
       text-align: center;
     }
 
-    @media(max-width: 768px) {
+    @media (max-width: 768px) {
       .grid {
         grid-template-columns: 1fr;
       }
@@ -131,23 +171,22 @@
   </style>
 </head>
 <body>
+
   <div class="container">
     <h1>Panya Computech LLP</h1>
-    <p class="intro">
-      Micro and Small Business Website Requirement Gathering Form - Client
-    </p>
+    <p class="intro">Micro and Small Business Website Requirement Gathering Form - Client</p>
 
-    <form id="websiteRequirementForm">
+    <form id="websiteRequirementForm" onsubmit="return false;">
 
       <h2>1. Business Information</h2>
       <div class="grid">
         <div>
-          <label>Business Name</label>
-          <input name="business_name" type="text" required>
+          <label>Business Name *</label>
+          <input name="business_name" type="text" required />
         </div>
 
         <div>
-          <label>Business Type</label>
+          <label>Business Type *</label>
           <select name="business_type" required>
             <option value="">Select Business Type</option>
             <option>Retail Shop</option>
@@ -180,26 +219,26 @@
 
         <div>
           <label>GST Number</label>
-          <input name="gst_number" type="text">
+          <input name="gst_number" type="text" />
         </div>
 
         <div>
-          <label>Contact Number</label>
-          <input name="contact_number" type="text" required>
+          <label>Contact Number *</label>
+          <input name="contact_number" type="text" required />
         </div>
 
         <div>
-          <label>Email Address</label>
-          <input name="email_address" type="email" required>
+          <label>Email Address *</label>
+          <input name="email_address" type="email" required />
         </div>
 
         <div>
-          <label>Website (if any)</label>
-          <input name="existing_website" type="text">
+          <label>Existing Website, if any</label>
+          <input name="existing_website" type="text" />
         </div>
 
         <div class="full">
-          <label>Business Address</label>
+          <label>Business Address *</label>
           <textarea name="business_address" required></textarea>
         </div>
       </div>
@@ -207,7 +246,7 @@
       <h2>2. Branding</h2>
       <div class="grid">
         <div>
-          <label>Do you already have a logo?</label>
+          <label>Do you already have a logo? *</label>
           <select name="has_logo" required>
             <option value="">Select</option>
             <option>Yes</option>
@@ -216,7 +255,7 @@
         </div>
 
         <div>
-          <label>Need Logo Design?</label>
+          <label>Need Logo Design? *</label>
           <select name="need_logo_design" required>
             <option value="">Select</option>
             <option>Yes</option>
@@ -226,7 +265,7 @@
 
         <div class="full">
           <label>Attach Logo / Master File</label>
-          <input name="logo_file" type="file" accept=".jpg,.jpeg,.png,.svg,.pdf,.ai,.eps">
+          <input name="logo_file" type="file" accept=".jpg,.jpeg,.png,.svg,.pdf,.ai,.eps" />
           <p class="note">Preferred formats: JPEG, PNG, SVG. Master files such as AI, EPS or PDF may also be attached if available.</p>
         </div>
 
@@ -238,14 +277,15 @@
 
       <h2>3. Website Objective</h2>
       <div class="checkbox-group">
-        <label><input name="website_objective" type="checkbox" value="Lead Generation"> Lead Generation</label>
-        <label><input name="website_objective" type="checkbox" value="Product Showcase"> Product Showcase</label>
-        <label><input name="website_objective" type="checkbox" value="Service Showcase"> Service Showcase</label>
-        <label><input name="website_objective" type="checkbox" value="Online Sales"> Online Sales</label>
-        <label><input name="website_objective" type="checkbox" value="Booking Enquiries"> Booking Enquiries</label>
-        <label><input name="website_objective" type="checkbox" value="Portfolio"> Portfolio</label>
-        <label><input name="website_objective" type="checkbox" value="Other"> Other</label>
+        <label><input name="website_objective" type="checkbox" value="Lead Generation" /> Lead Generation</label>
+        <label><input name="website_objective" type="checkbox" value="Product Showcase" /> Product Showcase</label>
+        <label><input name="website_objective" type="checkbox" value="Service Showcase" /> Service Showcase</label>
+        <label><input name="website_objective" type="checkbox" value="Online Sales" /> Online Sales</label>
+        <label><input name="website_objective" type="checkbox" value="Booking Enquiries" /> Booking Enquiries</label>
+        <label><input name="website_objective" type="checkbox" value="Portfolio" /> Portfolio</label>
+        <label><input name="website_objective" type="checkbox" value="Other" /> Other</label>
       </div>
+
       <div class="full" style="margin-top:15px;">
         <label>If Other, please explain the website objective</label>
         <textarea name="website_objective_other"></textarea>
@@ -253,20 +293,21 @@
 
       <h2>4. Pages Required</h2>
       <div class="checkbox-group">
-        <label><input name="pages_required" type="checkbox" value="Home"> Home</label>
-        <label><input name="pages_required" type="checkbox" value="About Us"> About Us</label>
-        <label><input name="pages_required" type="checkbox" value="Services"> Services</label>
-        <label><input name="pages_required" type="checkbox" value="Products"> Products</label>
-        <label><input name="pages_required" type="checkbox" value="Gallery"> Gallery</label>
-        <label><input name="pages_required" type="checkbox" value="Testimonials"> Testimonials</label>
-        <label><input name="pages_required" type="checkbox" value="Blog"> Blog</label>
-        <label><input name="pages_required" type="checkbox" value="FAQ"> FAQ</label>
-        <label><input name="pages_required" type="checkbox" value="Contact Us"> Contact Us</label>
-        <label><input name="pages_required" type="checkbox" value="Other"> Other</label>
+        <label><input name="pages_required" type="checkbox" value="Home" /> Home</label>
+        <label><input name="pages_required" type="checkbox" value="About Us" /> About Us</label>
+        <label><input name="pages_required" type="checkbox" value="Services" /> Services</label>
+        <label><input name="pages_required" type="checkbox" value="Products" /> Products</label>
+        <label><input name="pages_required" type="checkbox" value="Gallery" /> Gallery</label>
+        <label><input name="pages_required" type="checkbox" value="Testimonials" /> Testimonials</label>
+        <label><input name="pages_required" type="checkbox" value="Blog" /> Blog</label>
+        <label><input name="pages_required" type="checkbox" value="FAQ" /> FAQ</label>
+        <label><input name="pages_required" type="checkbox" value="Contact Us" /> Contact Us</label>
+        <label><input name="pages_required" type="checkbox" value="Other" /> Other</label>
       </div>
+
       <div class="full" style="margin-top:15px;">
         <label>Any Other Pages Required? Please list with brief description</label>
-        <textarea name="other_pages_brief" placeholder="Example: Franchise Enquiry page - for people interested in dealership or franchise enquiries."></textarea>
+        <textarea name="other_pages_brief" placeholder="Example: Franchise Enquiry page - for dealership or franchise enquiries."></textarea>
       </div>
 
       <h2>5. Content & Media</h2>
@@ -282,7 +323,7 @@
 
         <div>
           <label>Approximate Number of Images</label>
-          <input name="image_count" type="number">
+          <input name="image_count" type="number" min="0" />
         </div>
 
         <div>
@@ -322,7 +363,7 @@
 
         <div>
           <label>WhatsApp Number</label>
-          <input name="whatsapp_number" type="text">
+          <input name="whatsapp_number" type="text" />
         </div>
 
         <div>
@@ -338,22 +379,22 @@
       <div class="grid">
         <div>
           <label>Facebook URL</label>
-          <input name="facebook_url" type="text">
+          <input name="facebook_url" type="text" />
         </div>
 
         <div>
           <label>Instagram URL</label>
-          <input name="instagram_url" type="text">
+          <input name="instagram_url" type="text" />
         </div>
 
         <div>
           <label>LinkedIn URL</label>
-          <input name="linkedin_url" type="text">
+          <input name="linkedin_url" type="text" />
         </div>
 
         <div>
           <label>YouTube URL</label>
-          <input name="youtube_url" type="text">
+          <input name="youtube_url" type="text" />
         </div>
       </div>
 
@@ -383,33 +424,33 @@
 
       <h2>9. SEO & Marketing</h2>
       <div class="checkbox-group">
-        <label><input name="seo_marketing" type="checkbox" value="Basic SEO"> Basic SEO</label>
-        <label><input name="seo_marketing" type="checkbox" value="Google Analytics"> Google Analytics</label>
-        <label><input name="seo_marketing" type="checkbox" value="Google Search Console"> Google Search Console</label>
-        <label><input name="seo_marketing" type="checkbox" value="Facebook Pixel"> Facebook Pixel</label>
-        <label><input name="seo_marketing" type="checkbox" value="Sitemap"> Sitemap</label>
+        <label><input name="seo_marketing" type="checkbox" value="Basic SEO" /> Basic SEO</label>
+        <label><input name="seo_marketing" type="checkbox" value="Google Analytics" /> Google Analytics</label>
+        <label><input name="seo_marketing" type="checkbox" value="Google Search Console" /> Google Search Console</label>
+        <label><input name="seo_marketing" type="checkbox" value="Facebook Pixel" /> Facebook Pixel</label>
+        <label><input name="seo_marketing" type="checkbox" value="Sitemap" /> Sitemap</label>
       </div>
 
       <h2>10. Additional Features</h2>
       <div class="checkbox-group">
-        <label><input name="additional_features" type="checkbox" value="Admin Panel"> Admin Panel</label>
-        <label><input name="additional_features" type="checkbox" value="Blog System"> Blog System</label>
-        <label><input name="additional_features" type="checkbox" value="User Login"> User Login</label>
-        <label><input name="additional_features" type="checkbox" value="Payment Gateway"> Payment Gateway</label>
-        <label><input name="additional_features" type="checkbox" value="Booking System"> Booking System</label>
-        <label><input name="additional_features" type="checkbox" value="Newsletter"> Newsletter</label>
+        <label><input name="additional_features" type="checkbox" value="Admin Panel" /> Admin Panel</label>
+        <label><input name="additional_features" type="checkbox" value="Blog System" /> Blog System</label>
+        <label><input name="additional_features" type="checkbox" value="User Login" /> User Login</label>
+        <label><input name="additional_features" type="checkbox" value="Payment Gateway" /> Payment Gateway</label>
+        <label><input name="additional_features" type="checkbox" value="Booking System" /> Booking System</label>
+        <label><input name="additional_features" type="checkbox" value="Newsletter" /> Newsletter</label>
       </div>
 
       <h2>11. Timeline & Budget</h2>
       <div class="grid">
         <div>
           <label>Expected Launch Date</label>
-          <input name="expected_launch_date" type="date">
+          <input name="expected_launch_date" type="date" />
         </div>
 
         <div>
           <label>Estimated Budget</label>
-          <input name="estimated_budget" type="text">
+          <input name="estimated_budget" type="text" />
         </div>
 
         <div class="full">
@@ -431,14 +472,15 @@
         <p>8. Final deployment, source code transfer, maintenance, upgrades, bug fixes and support will be governed by the agreed quotation, invoice and service terms.</p>
       </div>
 
-      <div style="margin-top:15px;">
+      <div class="terms-check" style="margin-top:15px;">
         <label>
-          <input name="terms_agreed" type="checkbox" required>
+          <input name="terms_agreed" type="checkbox" required />
           I have read and agree to the above Terms & Conditions.
         </label>
       </div>
 
-      <button type="submit">Submit Requirements</button>
+      <button id="submitBtn" type="button">Submit Requirements</button>
+      <div id="formStatus" class="status"></div>
 
     </form>
 
@@ -447,118 +489,149 @@
     </div>
   </div>
 
-  <!--
-    Supabase Storage Note:
-    1. Create a Supabase table named: website_requirements
-    2. Create a Supabase storage bucket named: client-uploads
-    3. Upload logo/master file to the storage bucket first.
-    4. Save the public/private file path in the website_requirements table.
-  -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<script>
-  const SUPABASE_URL = "https://ladlsnsvycmcypzvnwwq.supabase.co";
-  const SUPABASE_ANON_KEY = "sb_publishable_xtodfLGfCsUhuvA1bGSTkw_9TCmVo_-";
+  <script>
+    const SUPABASE_URL = "https://ladlsnsvycmcypzvnwwq.supabase.co";
+    const SUPABASE_ANON_KEY = "sb_publishable_xtodfLGfCsUhuvA1bGSTkw_9TCmVo_-";
 
-  const supabase = window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_ANON_KEY
-  );
+    const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-  document.getElementById("websiteRequirementForm").addEventListener("submit", async function (e) {
-    e.preventDefault();
+    const form = document.getElementById("websiteRequirementForm");
+    const submitBtn = document.getElementById("submitBtn");
+    const statusBox = document.getElementById("formStatus");
 
-    const form = e.target;
-    const formData = new FormData(form);
+    submitBtn.addEventListener("click", submitWebsiteForm);
 
-    let logoFileUrl = null;
-    const logoFile = formData.get("logo_file");
+    function showStatus(type, message) {
+      statusBox.className = "status " + type;
+      statusBox.innerText = message;
+      statusBox.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
 
-    if (logoFile && logoFile.name) {
-      const filePath = `logos/${Date.now()}-${logoFile.name}`;
+    function clearStatus() {
+      statusBox.className = "status";
+      statusBox.innerText = "";
+    }
 
-      const { error: uploadError } = await supabase.storage
-        .from("client-uploads")
-        .upload(filePath, logoFile);
+    function getCheckedValues(name) {
+      return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`))
+        .map(item => item.value);
+    }
 
-      if (uploadError) {
-        alert("Logo upload failed: " + uploadError.message);
+    function safeFileName(fileName) {
+      return fileName
+        .toLowerCase()
+        .replace(/[^a-z0-9.\-_]/g, "-")
+        .replace(/-+/g, "-");
+    }
+
+    async function submitWebsiteForm() {
+      if (!form.checkValidity()) {
+        form.reportValidity();
         return;
       }
 
-      const { data } = supabase.storage
-        .from("client-uploads")
-        .getPublicUrl(filePath);
+      clearStatus();
+      submitBtn.disabled = true;
+      submitBtn.innerText = "Submitting...";
 
-      logoFileUrl = data.publicUrl;
+      try {
+        const formData = new FormData(form);
+        let logoFileUrl = null;
+        const logoFile = formData.get("logo_file");
+
+        if (logoFile && logoFile.name) {
+          const filePath = `logos/${Date.now()}-${safeFileName(logoFile.name)}`;
+
+          const { error: uploadError } = await supabaseClient.storage
+            .from("client-uploads")
+            .upload(filePath, logoFile, {
+              cacheControl: "3600",
+              upsert: false
+            });
+
+          if (uploadError) {
+            throw new Error("Logo upload failed: " + uploadError.message);
+          }
+
+          const { data } = supabaseClient.storage
+            .from("client-uploads")
+            .getPublicUrl(filePath);
+
+          logoFileUrl = data.publicUrl;
+        }
+
+        const payload = {
+          business_name: formData.get("business_name"),
+          business_type: formData.get("business_type"),
+          gst_number: formData.get("gst_number") || null,
+          contact_number: formData.get("contact_number"),
+          email_address: formData.get("email_address"),
+          existing_website: formData.get("existing_website") || null,
+          business_address: formData.get("business_address"),
+
+          has_logo: formData.get("has_logo"),
+          need_logo_design: formData.get("need_logo_design"),
+          logo_file_url: logoFileUrl,
+          brand_style: formData.get("brand_style") || null,
+
+          website_objective: getCheckedValues("website_objective"),
+          website_objective_other: formData.get("website_objective_other") || null,
+
+          pages_required: getCheckedValues("pages_required"),
+          other_pages_brief: formData.get("other_pages_brief") || null,
+
+          content_provider: formData.get("content_provider"),
+          image_count: formData.get("image_count") ? Number(formData.get("image_count")) : null,
+          video_embedding: formData.get("video_embedding"),
+          brochure_catalog_upload: formData.get("brochure_catalog_upload"),
+
+          whatsapp_chat: formData.get("whatsapp_chat"),
+          whatsapp_type: formData.get("whatsapp_type"),
+          whatsapp_number: formData.get("whatsapp_number") || null,
+          live_chat: formData.get("live_chat"),
+
+          facebook_url: formData.get("facebook_url") || null,
+          instagram_url: formData.get("instagram_url") || null,
+          linkedin_url: formData.get("linkedin_url") || null,
+          youtube_url: formData.get("youtube_url") || null,
+
+          has_domain: formData.get("has_domain"),
+          hosting_support: formData.get("hosting_support"),
+          domain_hosting_details: formData.get("domain_hosting_details") || null,
+
+          seo_marketing: getCheckedValues("seo_marketing"),
+          additional_features: getCheckedValues("additional_features"),
+
+          expected_launch_date: formData.get("expected_launch_date") || null,
+          estimated_budget: formData.get("estimated_budget") || null,
+          additional_notes: formData.get("additional_notes") || null,
+
+          terms_agreed: formData.get("terms_agreed") === "on"
+        };
+
+        const { error: insertError } = await supabaseClient
+          .from("website_requirements")
+          .insert([payload]);
+
+        if (insertError) {
+          throw new Error("Form submission failed: " + insertError.message);
+        }
+
+        showStatus("success", "Thank you. Your website requirements have been submitted successfully.");
+        alert("Thank you. Your website requirements have been submitted successfully.");
+        form.reset();
+      } catch (error) {
+        console.error(error);
+        showStatus("error", error.message || "Something went wrong. Please try again.");
+        alert(error.message || "Something went wrong. Please try again.");
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Submit Requirements";
+      }
     }
+  </script>
 
-    const getCheckedValues = (name) => {
-      return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`))
-        .map(item => item.value);
-    };
-
-    const payload = {
-      business_name: formData.get("business_name"),
-      business_type: formData.get("business_type"),
-      gst_number: formData.get("gst_number"),
-      contact_number: formData.get("contact_number"),
-      email_address: formData.get("email_address"),
-      existing_website: formData.get("existing_website"),
-      business_address: formData.get("business_address"),
-
-      has_logo: formData.get("has_logo"),
-      need_logo_design: formData.get("need_logo_design"),
-      logo_file_url: logoFileUrl,
-      brand_style: formData.get("brand_style"),
-
-      website_objective: getCheckedValues("website_objective"),
-      website_objective_other: formData.get("website_objective_other"),
-
-      pages_required: getCheckedValues("pages_required"),
-      other_pages_brief: formData.get("other_pages_brief"),
-
-      content_provider: formData.get("content_provider"),
-      image_count: Number(formData.get("image_count")) || null,
-      video_embedding: formData.get("video_embedding"),
-      brochure_catalog_upload: formData.get("brochure_catalog_upload"),
-
-      whatsapp_chat: formData.get("whatsapp_chat"),
-      whatsapp_type: formData.get("whatsapp_type"),
-      whatsapp_number: formData.get("whatsapp_number"),
-      live_chat: formData.get("live_chat"),
-
-      facebook_url: formData.get("facebook_url"),
-      instagram_url: formData.get("instagram_url"),
-      linkedin_url: formData.get("linkedin_url"),
-      youtube_url: formData.get("youtube_url"),
-
-      has_domain: formData.get("has_domain"),
-      hosting_support: formData.get("hosting_support"),
-      domain_hosting_details: formData.get("domain_hosting_details"),
-
-      seo_marketing: getCheckedValues("seo_marketing"),
-      additional_features: getCheckedValues("additional_features"),
-
-      expected_launch_date: formData.get("expected_launch_date") || null,
-      estimated_budget: formData.get("estimated_budget"),
-      additional_notes: formData.get("additional_notes"),
-
-      terms_agreed: formData.get("terms_agreed") === "on"
-    };
-
-    const { error } = await supabase
-      .from("website_requirements")
-      .insert(payload);
-
-    if (error) {
-      alert("Form submission failed: " + error.message);
-      return;
-    }
-
-    alert("Thank you. Your website requirements have been submitted successfully.");
-    form.reset();
-  });
-</script>
 </body>
 </html>
